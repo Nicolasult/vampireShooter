@@ -26,18 +26,15 @@ class Game:
 
         # Sprites
 
-        self.player = Player((400, 300), self.all_sprites, self.collision_sprites)
+        self.player = Player((500, 300), self.all_sprites, self.collision_sprites)
         
     def setup(self):
         map = load_pygame(join("data", "maps", "world.tmx"))
+        for x, y, image in map.get_layer_by_name("Ground").tiles():
+            Sprite((x * TILE_SIZE, y * TILE_SIZE), image, self.all_sprites)
         for obj in map.get_layer_by_name("Objects"):
             CollisionSprite((obj.x, obj.y), obj.image, (self.all_sprites, self.collision_sprites))
-
-            print(obj.x)
-            print(obj.y)
-            print(obj.image)
-
-
+            
     def run(self):
         while self.running:
             dt = self.clock.tick() / 1000
