@@ -13,7 +13,6 @@ class Game:
 
         self.player = Player((400, 300), self.all_sprites)
 
-
     def run(self):
         while self.running:
             dt = self.clock.tick() / 1000
@@ -24,6 +23,7 @@ class Game:
             
             self.all_sprites.update(dt)
 
+            self.display_surface.fill("Black")
             self.all_sprites.draw(self.display_surface)
             pygame.display.update()
 
