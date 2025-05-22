@@ -1,0 +1,30 @@
+# ⬛️ Environnement virtuel
+venv/
+
+# 🔵 Fichiers Python compilés
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 📦 Dépendances
+*.egg
+*.egg-info/
+dist/
+build/
+
+# 🛠 Outils IDE
+.vscode/
+.idea/
+
+# 💾 Fichiers système
+.DS_Store
+Thumbs.db
+
+# 📑 Logs ou fichiers temporaires
+*.log
+*.tmp
+*.swp
+
+# 💻 PyInstaller / cx_Freeze
+*.spec
+
