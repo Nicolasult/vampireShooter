@@ -39,16 +39,25 @@ class Game:
 
     def run(self):
         while self.running:
+
+            # Deltatime
+
             dt = self.clock.tick() / 1000
-        
+
+            # Event loop
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
             
+            # Update
+
             self.all_sprites.update(dt)
 
+            # Draw
+
             self.display_surface.fill("Black")
-            self.all_sprites.draw(self.display_surface)
+            self.all_sprites.draw()
             pygame.display.update()
 
         pygame.quit()
