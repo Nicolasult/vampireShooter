@@ -65,11 +65,15 @@ class Enemy(pygame.sprite.Sprite):
         super().__init__(groups)
         self.player = player
 
+        # Images
+
         self.frames, self.frame_index = frames, 0
-        self.images = self.frames[self.frame_index]
+        self.image = self.frames[self.frame_index]
         self.animation_speed = 6
 
-        self.rect = self.image.get_frec(center = pos)
+        # Rect
+
+        self.rect = self.image.get_frect(center = pos)
         self.hitbox_rect = self.rect.inflate(-20, -40)
         self.collision_sprites = collision_sprites
         self.direction = pygame.Vector2()
