@@ -24,5 +24,11 @@ class Gun(pygame.sprite.Sprite):
         self.image = self.gun_surf
         self.rect = self.image.get_frect(center = self.player.rect.center + self.player_direction * self.distance)
     
+    def get_direction(self):
+        mouse_pos = pygame.Vector2(pygame.mouse.get_pos())
+        player_pos = pygame.Vector2(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2)
+        self.player_direction = (mouse_pos - player_pos).normalize()
+
     def update(self, _):
+        self.get_direction()
         self.rect.center = self.player.rect.center + self.player_direction * self.distance
