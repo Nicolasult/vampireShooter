@@ -32,6 +32,8 @@ class Game:
         self.shoot_time = 0
         self.gun_cooldown = 200
 
+        # Enemy timer
+
     def load_images(self):
         self.bullet_surf = pygame.image.load(join("images", "gun", "bullet.png")).convert_alpha()
 
