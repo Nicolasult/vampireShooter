@@ -11,7 +11,7 @@ class Player(pygame.sprite.Sprite):
 
         # Movement
 
-        self.direction = pygame.Vector2(0, 0)
+        self.direction = pygame.Vector2()
         self.speed = 500
         self.collision_sprites = collision_sprites
 
@@ -51,12 +51,17 @@ class Player(pygame.sprite.Sprite):
                     if self.direction.y > 0: self.hitbox_rect.bottom = sprite.rect.top
 
     def animate(self, dt):
+
+        # Get state
+
         if self.direction.x != 0:
             self.state = "right" if self.direction.x > 0 else "left"
         if self.direction.y != 0:
             self.state = "down" if self.direction.y > 0 else "up"
-            
-        self.frame_index += 5 * dt
+        
+        # Animate
+
+        self.frame_index = self.frame_index + 5 * dt if self.direction else 0
         self.image = self.frames[self.state][int(self.frame_index) % len(self.frames[self.state])]
 
     def update(self, dt):
